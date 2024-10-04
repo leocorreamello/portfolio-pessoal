@@ -10,7 +10,7 @@ export default function Header() {
                     <img className="w-1/4" src={logo} alt="logo" />
                 </div>
                 <nav>
-                    <ul className="flex space-x-10">
+                    <ul className="xl:text-3xl lg:text-3xl md:text-2xl sm:text-2xl ssm-text-1xl flex space-x-10">
                         <li>
                             <Link to="home" smooth={true} duration={500}>
                             Principal

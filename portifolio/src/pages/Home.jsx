@@ -24,11 +24,11 @@ export default function Home() {
                 <section className="flex items-center min-h-screen">
                     <div className='flex-col'>
                         <div className="mx-32">
-                            <h1 className="text-6xl">Olá eu sou o</h1>
-                            <h1 className="text-8xl bg-clip-text text-transparent bg-gradient-to-r from-[#00FFD1] to-[#0500FF]">
+                            <h1 className="xl:text-6xl lg:text-5xl md:text-4xl sm:text-3xl ssm-text-3xl">Olá eu sou o</h1>
+                            <h1 className="xl:text-8xl lg:text-7xl md:text-5xl sm:text-4xl ssm-text-6xl bg-clip-text text-transparent bg-gradient-to-r from-[#00FFD1] to-[#0500FF]">
                                 Leonardo Mello
                             </h1>
-                            <h1 className="text-8xl">Engenheiro de Software</h1>
+                            <h1 className="xl:text-8xl lg:text-7xl md:text-5xl sm:text-4xl ssm-text-6xl">Engenheiro de Software</h1>
                         </div>
                         <div className='flex mx-32 mt-6 gap-6'>
                             <a href="https://github.com/leocorreamello" target='_blank'><img src={github3} alt="fotogit" className='size-[77px]'/></a>
