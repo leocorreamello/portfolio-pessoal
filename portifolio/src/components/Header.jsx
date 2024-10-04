@@ -1,4 +1,5 @@
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-scroll';
 import logo from "../../public/logo.png";
 
 export default function Header() {
@@ -9,10 +10,22 @@ export default function Header() {
                     <img className="w-1/4" src={logo} alt="logo" />
                 </div>
                 <nav>
-                    <ul className="flex gap-6">
-                        <li><NavLink to="/">Principal</NavLink></li>
-                        <li><NavLink to="/sobre">Sobre mim</NavLink></li>
-                        <li><NavLink to="/projetos">Projetos</NavLink></li>
+                    <ul className="flex space-x-10">
+                        <li>
+                            <Link to="home" smooth={true} duration={500}>
+                            Principal
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="sobre" smooth={true} duration={500}>
+                            Sobre
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="projetos" smooth={true} duration={500}>
+                            Projetos
+                            </Link>
+                        </li>
                     </ul>
                 </nav>
             </header>

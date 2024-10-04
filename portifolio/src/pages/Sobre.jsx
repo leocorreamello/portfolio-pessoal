@@ -15,7 +15,7 @@ export default function Sobre() {
 
     return (
         <>
-          <main>
+          <main className='mb-72'>
             <div className="flex items-center min-h-screen justify-center p-4">
                 <img src={fotoeu} alt="minha foto" className='w-[500px] rounded-full outline outline-[#0500FF] absolute mr-[1150px]'/>
                 <div className="bg-[#50616B] rounded-[40px] border-4 border-gradient p-6 w-full max-w-6xl">
