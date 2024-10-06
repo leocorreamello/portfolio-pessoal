@@ -18,17 +18,17 @@ export default function Header() {
                 </div>
                 <nav className="hidden lg:flex space-x-4">
                     <ul className="flex space-x-4">
-                        <li>
+                        <li className="cursor-pointer hover:underline hover:underline-offset-4">
                             <Link to="home" smooth={true} duration={500}>
                                 Principal
                             </Link>
                         </li>
-                        <li>
+                        <li className="cursor-pointer hover:underline hover:underline-offset-4">
                             <Link to="sobre" smooth={true} duration={500}>
                                 Sobre
                             </Link>
                         </li>
-                        <li>
+                        <li className="cursor-pointer hover:underline hover:underline-offset-4">
                             <Link to="projetos" smooth={true} duration={500}>
                                 Projetos
                             </Link>
@@ -44,17 +44,17 @@ export default function Header() {
             {isMenuOpen && (
                 <div className="lg:hidden bg-black text-white fixed top-20 w-full z-40">
                     <ul className="flex flex-col space-y-4 p-4 text-right">
-                        <li>
+                        <li className="cursor-pointer hover:underline hover:underline-offset-4">
                             <Link to="home" smooth={true} duration={500} onClick={toggleMenu}>
                                 Principal
                             </Link>
                         </li>
-                        <li>
+                        <li className="cursor-pointer hover:underline hover:underline-offset-4">
                             <Link to="sobre" smooth={true} duration={500} onClick={toggleMenu}>
                                 Sobre
                             </Link>
                         </li>
-                        <li>
+                        <li className="cursor-pointer hover:underline hover:underline-offset-4">
                             <Link to="projetos" smooth={true} duration={500} onClick={toggleMenu}>
                                 Projetos
                             </Link>
