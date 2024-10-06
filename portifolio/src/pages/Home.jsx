@@ -26,7 +26,7 @@ export default function Home() {
                                 <IoLogoLinkedin className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 xl:w-28 xl:h-28"/>
                             </a>
                             <a className="flex" target='_blank' rel="noopener noreferrer" href={cv}>
-                                <button className="border-2 border-paragraphcolor p-3 rounded-md font-inter text-paragraphcolor text-sm sm:text-base md:text-lg lg:text-xl hover:bg-white hover:text-black">
+                                <button className="border-2 border-paragraphcolor md:p-6 p-4 rounded-md font-inter text-paragraphcolor text-sm sm:text-base md:text-lg lg:text-xl hover:bg-white hover:text-black">
                                     Baixar Currículo
                                 </button>
                             </a>

@@ -37,8 +37,8 @@ export default function Projetos() {
                                 <img src={js} alt="js" className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10"/>
                             </div>
                             <div className='flex gap-3 mt-[10px] flex-wrap'>
-                                <a href="https://github.com/peguidotte/WasteWise" target='_blank'><button className='flex bg-slate-800 p-2 items-center gap-1 rounded-xl'><FaCode className="sm:size-5 md:size-6 lg:size-8 xl:size-10"/><p className='sm:text-sm md:text-md lg:text-lg xl:text-xl'>Código</p></button></a>
-                                <a href="https://waste-wise-ibmn.vercel.app/" target='_blank'><button className='flex bg-slate-800 p-2 items-center gap-1 rounded-xl'><TbWorldWww className="sm:size-5 md:size-6 lg:size-8 xl:size-10"/><p className='sm:text-sm md:text-md lg:text-lg xl:text-xl'>Site</p></button></a>
+                                <a href="https://github.com/peguidotte/WasteWise" target='_blank'><button className='flex bg-slate-800 p-2 items-center gap-1 rounded-xl hover:bg-slate-600'><FaCode className="sm:size-5 md:size-6 lg:size-8 xl:size-10"/><p className='sm:text-sm md:text-md lg:text-lg xl:text-xl'>Código</p></button></a>
+                                <a href="https://waste-wise-ibmn.vercel.app/" target='_blank'><button className='flex bg-slate-800 p-2 items-center gap-1 rounded-xl hover:bg-slate-600'><TbWorldWww className="sm:size-5 md:size-6 lg:size-8 xl:size-10"/><p className='sm:text-sm md:text-md lg:text-lg xl:text-xl'>Site</p></button></a>
                             </div>
                         </div>
                         <div className='flex flex-col items-center'>
@@ -50,8 +50,8 @@ export default function Projetos() {
                                 <img src={js} alt="js" className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10"/>
                             </div>
                             <div className='flex gap-3 mt-[10px] flex-wrap'>
-                                <a href="https://github.com/leocorreamello/CP03-Web-Mini-Red-Social" target='_blank'><button className='flex bg-slate-800 p-2 items-center gap-1 rounded-xl'><FaCode className="sm:size-5 md:size-6 lg:size-8 xl:size-10"/><p className='sm:text-sm md:text-md lg:text-lg xl:text-xl'>Código</p></button></a>
-                                <a href="https://leocorreamello.github.io/CP03-Web-Mini-Red-Social/" target='_blank'><button className='flex bg-slate-800 p-2 items-center gap-1 rounded-xl'><TbWorldWww className="sm:size-5 md:size-6 lg:size-8 xl:size-10"/><p className='sm:text-sm md:text-md lg:text-lg xl:text-xl'>Site</p></button></a>
+                                <a href="https://github.com/leocorreamello/CP03-Web-Mini-Red-Social" target='_blank'><button className='flex bg-slate-800 p-2 items-center gap-1 rounded-xl hover:bg-slate-600'><FaCode className="sm:size-5 md:size-6 lg:size-8 xl:size-10"/><p className='sm:text-sm md:text-md lg:text-lg xl:text-xl'>Código</p></button></a>
+                                <a href="https://leocorreamello.github.io/CP03-Web-Mini-Red-Social/" target='_blank'><button className='flex bg-slate-800 p-2 items-center gap-1 rounded-xl hover:bg-slate-600'><TbWorldWww className="sm:size-5 md:size-6 lg:size-8 xl:size-10"/><p className='sm:text-sm md:text-md lg:text-lg xl:text-xl'>Site</p></button></a>
                             </div>
                         </div>
                         <div className='flex flex-col items-center'>
@@ -64,8 +64,8 @@ export default function Projetos() {
                                 <img src={bootstrap} alt="bootstrap" className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10"/>
                             </div>
                             <div className='flex gap-3 mt-[10px] flex-wrap'>
-                                <a href="https://github.com/leocorreamello/E-commerce-CP04" target='_blank'><button className='flex bg-slate-800 p-2 items-center gap-1 rounded-xl'><FaCode className="sm:size-5 md:size-6 lg:size-8 xl:size-10"/><p className='sm:text-sm md:text-md lg:text-lg xl:text-xl'>Código</p></button></a>
-                                <a href="https://leocorreamello.github.io/E-commerce-CP04/" target='_blank'><button className='flex bg-slate-800 p-2 items-center gap-1 rounded-xl'><TbWorldWww className="sm:size-5 md:size-6 lg:size-8 xl:size-10"/><p className='sm:text-sm md:text-md lg:text-lg xl:text-xl'>Site</p></button></a>
+                                <a href="https://github.com/leocorreamello/E-commerce-CP04" target='_blank'><button className='flex bg-slate-800 p-2 items-center gap-1 rounded-xl hover:bg-slate-600'><FaCode className="sm:size-5 md:size-6 lg:size-8 xl:size-10"/><p className='sm:text-sm md:text-md lg:text-lg xl:text-xl'>Código</p></button></a>
+                                <a href="https://leocorreamello.github.io/E-commerce-CP04/" target='_blank'><button className='flex bg-slate-800 p-2 items-center gap-1 rounded-xl hover:bg-slate-600'><TbWorldWww className="sm:size-5 md:size-6 lg:size-8 xl:size-10"/><p className='sm:text-sm md:text-md lg:text-lg xl:text-xl'>Site</p></button></a>
                             </div>
                         </div>
                         <div className='flex flex-col items-center'>
@@ -76,8 +76,8 @@ export default function Projetos() {
                                 <img src={c} alt="c++" className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10"/>
                             </div>
                             <div className='flex gap-3 mt-[10px] flex-wrap'>
-                                <a href="https://github.com/leocorreamello/EDGE---GS2024?tab=readme-ov-file" target='_blank'><button className='flex bg-slate-800 p-2 items-center gap-1 rounded-xl'><FaCode className="sm:size-5 md:size-6 lg:size-8 xl:size-10"/><p className='sm:text-sm md:text-md lg:text-lg xl:text-xl'>Código</p></button></a>
-                                <a href="https://wokwi.com/projects/399705116640261121" target='_blank'><button className='flex bg-slate-800 p-2 items-center gap-1 rounded-xl'><TbWorldWww className="sm:size-5 md:size-6 lg:size-8 xl:size-10"/><p className='sm:text-sm md:text-md lg:text-lg xl:text-xl'>Site</p></button></a>
+                                <a href="https://github.com/leocorreamello/EDGE---GS2024?tab=readme-ov-file" target='_blank'><button className='flex bg-slate-800 p-2 items-center gap-1 rounded-xl hover:bg-slate-600'><FaCode className="sm:size-5 md:size-6 lg:size-8 xl:size-10"/><p className='sm:text-sm md:text-md lg:text-lg xl:text-xl'>Código</p></button></a>
+                                <a href="https://wokwi.com/projects/399705116640261121" target='_blank'><button className='flex bg-slate-800 p-2 items-center gap-1 rounded-xl hover:bg-slate-600'><TbWorldWww className="sm:size-5 md:size-6 lg:size-8 xl:size-10"/><p className='sm:text-sm md:text-md lg:text-lg xl:text-xl'>Site</p></button></a>
                             </div>
                         </div>
                         <div className='flex flex-col items-center'>
@@ -91,8 +91,8 @@ export default function Projetos() {
                                 <img src={react} alt="react" className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10"/>
                             </div>
                             <div className='flex gap-3 mt-[10px] mb-12 flex-wrap'>
-                                <a href="https://github.com/leocorreamello/portfolio-pessoal" target='_blank'><button className='flex bg-slate-800 p-2 items-center gap-1 rounded-xl'><FaCode className="sm:size-5 md:size-6 lg:size-8 xl:size-10"/><p className='sm:text-sm md:text-md lg:text-lg xl:text-xl'>Código</p></button></a>
-                                <Link to="/" target='_blank'><button className='flex bg-slate-800 p-2 items-center gap-1 rounded-xl'><TbWorldWww className="sm:size-5 md:size-6 lg:size-8 xl:size-10"/><p className='sm:text-sm md:text-md lg:text-lg xl:text-xl'>Site</p></button></Link>
+                                <a href="https://github.com/leocorreamello/portfolio-pessoal" target='_blank'><button className='flex bg-slate-800 p-2 items-center gap-1 rounded-xl hover:bg-slate-600'><FaCode className="sm:size-5 md:size-6 lg:size-8 xl:size-10"/><p className='sm:text-sm md:text-md lg:text-lg xl:text-xl'>Código</p></button></a>
+                                <Link to="/" target='_blank'><button className='flex bg-slate-800 p-2 items-center gap-1 rounded-xl hover:bg-slate-600'><TbWorldWww className="sm:size-5 md:size-6 lg:size-8 xl:size-10"/><p className='sm:text-sm md:text-md lg:text-lg xl:text-xl'>Site</p></button></Link>
                             </div>
                         </div>
                         <div className='flex flex-col items-center'>
@@ -107,8 +107,8 @@ export default function Projetos() {
                                 <img src={react} alt="react" className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10"/>
                             </div>
                             <div className='flex gap-3 mt-[10px] mb-12 flex-wrap'>
-                                <a href="https://github.com/peguidotte/melodia" target='_blank'><button className='flex bg-slate-800 p-2 items-center gap-1 rounded-xl'><FaCode className="sm:size-5 md:size-6 lg:size-8 xl:size-10"/><p className='sm:text-sm md:text-md lg:text-lg xl:text-xl'>Código</p></button></a>
-                                <a href="https://github.com/peguidotte/melodia" target='_blank'><button className='flex bg-slate-800 p-2 items-center gap-1 rounded-xl'><TbWorldWww className="sm:size-5 md:size-6 lg:size-8 xl:size-10"/><p className='sm:text-sm md:text-md lg:text-lg xl:text-xl'>Site</p></button></a>
+                                <a href="https://github.com/peguidotte/melodia" target='_blank'><button className='flex bg-slate-800 p-2 items-center gap-1 rounded-xl hover:bg-slate-600'><FaCode className="sm:size-5 md:size-6 lg:size-8 xl:size-10"/><p className='sm:text-sm md:text-md lg:text-lg xl:text-xl'>Código</p></button></a>
+                                <a href="https://melodia-bay.vercel.app/" target='_blank'><button className='flex bg-slate-800 p-2 items-center gap-1 rounded-xl hover:bg-slate-600'><TbWorldWww className="sm:size-5 md:size-6 lg:size-8 xl:size-10"/><p className='sm:text-sm md:text-md lg:text-lg xl:text-xl'>Site</p></button></a>
                             </div>
                         </div>
                     </div>
