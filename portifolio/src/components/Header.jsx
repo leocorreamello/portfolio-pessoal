@@ -12,12 +12,12 @@ export default function Header() {
 
     return (
         <>
-            <header className="bg-black fixed top-0 w-full flex text-white justify-around h-20 items-center text-2xl px-4 z-50">
+            <header className="bg-black fixed top-0 w-full flex text-white justify-around h-20 sm:h-24 md:h-28 lg:h-32 items-center text-2xl px-4 z-50">
                 <div>
                     <img className="w-1/4" src={logo} alt="logo" />
                 </div>
-                <nav className="hidden lg:flex space-x-4">
-                    <ul className="flex space-x-4">
+                <nav className="hidden lg:flex space-x-6">
+                    <ul className="flex space-x-6">
                         <li className="cursor-pointer hover:underline hover:underline-offset-4">
                             <Link to="home" smooth={true} duration={500}>
                                 Principal
