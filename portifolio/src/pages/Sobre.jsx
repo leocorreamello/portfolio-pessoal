@@ -8,8 +8,12 @@ import java from '../../public/java.png'
 import git from '../../public/git.png'
 import github from '../../public/github.png'
 import linkedin from '../../public/linkedin.png'
-import whatsapp from '../../public/whatsapp.png'
 import curriculo from '../../public/curriculo.png'
+import cv from '../../public/curriculo2024.pdf'
+import sass from '../../public/sass.png'
+import arduino from '../../public/arduino.png'
+import c from '../../public/c.png'
+import tailwind from '../../public/tailwind-css.svg'
 
 export default function Sobre() {
 
@@ -34,13 +38,16 @@ export default function Sobre() {
                             <img src={bootstrap} alt="fotoboot" className="w-16 h-16 md:w-20 md:h-20"/>
                             <img src={java} alt="fotojava" className="w-16 h-16 md:w-20 md:h-20"/>
                             <img src={git} alt="fotogit" className="w-16 h-16 md:w-20 md:h-20"/>
+                            <img src={sass} alt="sass" className="w-16 h-16 md:w-20 md:h-20"/>
+                            <img src={arduino} alt="arduino" className="w-16 h-16 md:w-20 md:h-20"/>
+                            <img src={c} alt="c++" className="w-16 h-16 md:w-20 md:h-20"/>
+                            <img src={tailwind} alt="tailwind" className="md:w-14 md:h-14" />
                         </div>
                         <h2 className="text-2xl md:text-4xl mt-4 text-center">Contato</h2>
                         <div className='flex flex-wrap justify-center mt-4 gap-4'>
                             <a href="https://github.com/leocorreamello" target='_blank'><img src={github} alt="fotogithub" className="w-16 h-16 md:w-20 md:h-20"/></a>
                             <a href="https://www.linkedin.com/in/leocorreamello/" target='_blank'><img src={linkedin} alt="fotolinkedin" className="w-16 h-16 md:w-20 md:h-20"/></a>
-                            <a href="#"><img src={whatsapp} alt="fotowhatsapp" className="w-16 h-16 md:w-20 md:h-20"/></a>
-                            <a href="#"><img src={curriculo} alt="fotocurriculo" className="w-16 h-16 md:w-20 md:h-20"/></a>
+                            <a href={cv} target='_blank'><img src={curriculo} alt="fotocurriculo" className="w-16 h-16 md:w-20 md:h-20"/></a>
                         </div>
                     </div>
                 </div>

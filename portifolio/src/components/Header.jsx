@@ -12,7 +12,7 @@ export default function Header() {
 
     return (
         <>
-            <header className="bg-black fixed top-0 w-full flex text-white justify-between h-20 items-center text-2xl px-4 z-50">
+            <header className="bg-black fixed top-0 w-full flex text-white justify-around h-20 items-center text-2xl px-4 z-50">
                 <div>
                     <img className="w-1/4" src={logo} alt="logo" />
                 </div>
@@ -43,7 +43,7 @@ export default function Header() {
             </header>
             {isMenuOpen && (
                 <div className="lg:hidden bg-black text-white fixed top-20 w-full z-40">
-                    <ul className="flex flex-col space-y-4 p-4">
+                    <ul className="flex flex-col space-y-4 p-4 text-right">
                         <li>
                             <Link to="home" smooth={true} duration={500} onClick={toggleMenu}>
                                 Principal
