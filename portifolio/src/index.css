@@ -4,6 +4,6 @@
 
 @layer utilities {
   .border-gradient {
-    border: 4px solid #0500FF;
+    border: 4px solid ;
   }
 }

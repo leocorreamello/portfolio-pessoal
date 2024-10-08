@@ -81,7 +81,7 @@ export default function Projetos() {
                             </div>
                         </div>
                         <div className='flex flex-col items-center'>
-                            <h1 className='text-center text-3xl'>Esse Portfólio</h1>
+                            <h1 className='text-center text-3xl'>Portfólio Pessoal</h1>
                             <img src={projeto5} alt="projeto5" className='w-48 md:w-64 lg:w-80 rounded-[40px] border-gradient'/>
                             <div className='flex justify-center gap-4 mt-4 flex-wrap'>
                                 <img src={html} alt="html" className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10"/>

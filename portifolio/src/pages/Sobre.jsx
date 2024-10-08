@@ -45,8 +45,8 @@ const Sobre = () => {
         <>
             <main className='mb-72 flex items-center justify-center min-h-screen'>
                 <div className="flex flex-col lg:flex-row items-center justify-center p-4 w-full max-w-6xl">
-                    <img src={fotoeu} alt="minha foto" className='w-64 md:w-80 lg:w-[500px] rounded-full outline outline-[#0500FF] lg:absolute lg:mr-[1150px]' />
-                    <div className="bg-[#50616B] rounded-[40px] border-4 border-gradient p-6 w-full mt-8 lg:mt-0">
+                    <img src={fotoeu} alt="minha foto" className='w-64 md:w-80 lg:w-[500px] rounded-full outline outline-white lg:absolute lg:mr-[1150px]' />
+                    <div className="bg-[#3b3d3f] rounded-[40px] border-4 border-gradient p-6 w-full mt-8 lg:mt-0">
                         <div className='lg:ml-[400px] lg:mr-[100px] mt-[50px]'>
                             <h1 className="text-3xl md:text-4xl lg:text-6xl text-center">Leonardo Mello</h1>
                             <p className="text-lg md:text-xl lg:text-3xl text-justify mt-4">
