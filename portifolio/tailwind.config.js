@@ -20,6 +20,16 @@ export default {
         'h1-lg': '3rem',    // 1024px
         'h1-xl': '3.5rem',  // 1280px
       },
+      animation: {
+        'button-hover': 'buttonHover 0.3s ease-in-out',
+      },
+      keyframes: {
+        buttonHover: {
+          '0%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(1.05)' },
+          '100%': { transform: 'scale(1)' },
+        },
+      },
     },
   },
   plugins: [],

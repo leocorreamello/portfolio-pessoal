@@ -4,7 +4,11 @@ export default function Projetos() {
 
     return (
         <>
-          <Card/>
+            <section className="py-12">
+                <div className="container mx-auto">
+                    <Card />
+                </div>
+            </section>
         </>
     )
 }

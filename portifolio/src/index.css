@@ -4,6 +4,18 @@
 
 @layer utilities {
   .border-gradient {
-    border: 4px solid ;
+    border: 4px solid;
   }
+}
+
+:root {
+  --bg-color-dark: #1c1e21;
+  --text-color-dark: #ffffff;
+  --primary-color-dark: #3b3d3f;
+  --secondary-color-dark: #2c2f33;
+}
+
+body {
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-dark);
 }
