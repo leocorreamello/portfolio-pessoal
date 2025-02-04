@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import fotoeu from '../../public/eu5.png';
+import fotoeu from '../../public/eu8.png';
 import html from '../../public/html-5.png';
 import css from '../../public/css-3.png';
 import js from '../../public/js.png';
@@ -16,7 +16,7 @@ import arduino from '../../public/arduino.png';
 import c from '../../public/c.png';
 import tailwind from '../../public/tailwind-css.svg';
 
-const Sobre = () => {
+const Sobre = ({ isEnglish }) => {
     const [hoveredImg, setHoveredImg] = useState(null);
 
     const handleMouseEnter = (alt) => {
@@ -50,11 +50,13 @@ const Sobre = () => {
                         <div className='2xl:ml-[400px] 2xl:mr-[100px] mt-[50px]'>
                             <h1 className="text-3xl md:text-4xl lg:text-6xl text-center">Leonardo Mello</h1>
                             <p className="text-lg md:text-xl lg:text-3xl text-justify mt-4">
-                            Olá, sou Leonardo Mello, tenho 19 anos e estou cursando Engenharia de Software na FIAP. 
-                            Atualmente, atuo como estagiário na Ticket, integrando o time de Canais Digitais 
-                            como Desenvolvedor. Sou apaixonado por tecnologia e estou sempre em busca de novos desafios.
+                            {isEnglish ? 
+                                "Hello, I'm Leonardo Mello, I'm 19 years old and I'm studying Software Engineering at FIAP. Currently, I work as an intern at Ticket, integrating the Digital Channels team as a Developer. I'm passionate about technology and I'm always looking for new challenges." 
+                                : 
+                                "Olá, sou Leonardo Mello, tenho 19 anos e estou cursando Engenharia de Software na FIAP. Atualmente, atuo como estagiário na Ticket, integrando o time de Canais Digitais como Desenvolvedor. Sou apaixonado por tecnologia e estou sempre em busca de novos desafios."
+                            }
                             </p>
-                            <h2 className="text-xl md:text-2xl lg:text-4xl mt-4 text-center">Tecnologias</h2>
+                            <h2 className="text-xl md:text-2xl lg:text-4xl mt-4 text-center">{isEnglish ? "Technologies" : "Tecnologias"}</h2>
                             <div className='flex flex-wrap justify-center mt-4 gap-4'>
                                 {images.map((image) => (
                                     <div
@@ -72,16 +74,16 @@ const Sobre = () => {
                                     </div>
                                 ))}
                             </div>
-                            <h2 className="text-xl md:text-2xl lg:text-4xl mt-4 text-center">Contato</h2>
+                            <h2 className="text-xl md:text-2xl lg:text-4xl mt-4 text-center">{isEnglish ? "Contact" : "Contato"}</h2>
                             <div className='flex flex-wrap justify-center mt-4 gap-4'>
                                 <a href="https://github.com/leocorreamello" target='_blank' rel="noopener noreferrer">
-                                    <img src={github} alt="GitHub" className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20" />
+                                    <img src={github} alt="GitHub" className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 hover:animate-button-hover" />
                                 </a>
                                 <a href="https://www.linkedin.com/in/leocorreamello/" target='_blank' rel="noopener noreferrer">
-                                    <img src={linkedin} alt="LinkedIn" className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20" />
+                                    <img src={linkedin} alt="LinkedIn" className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 hover:animate-button-hover" />
                                 </a>
                                 <a href={cv} target='_blank' rel="noopener noreferrer">
-                                    <img src={curriculo} alt="Currículo" className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20" />
+                                    <img src={curriculo} alt="Currículo" className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 hover:animate-button-hover" />
                                 </a>
                             </div>
                         </div>

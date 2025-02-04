@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 import Home from './pages/Home.jsx';
@@ -6,20 +6,32 @@ import Sobre from './pages/Sobre.jsx';
 import Projetos from './pages/Projetos.jsx';
 
 function App() {
+  const [isEnglish, setIsEnglish] = useState(() => {
+    const savedLanguage = localStorage.getItem('isEnglish');
+    return savedLanguage ? JSON.parse(savedLanguage) : true;
+  });
+
+  const toggleLanguage = () => {
+    setIsEnglish(prevState => {
+      const newState = !prevState;
+      localStorage.setItem('isEnglish', JSON.stringify(newState));
+      return newState;
+    });
+  };
 
   return (
     <div>
-      <Header />
+      <Header toggleLanguage={toggleLanguage} isEnglish={isEnglish} />
       <section id="home">
-        <Home />
+        <Home isEnglish={isEnglish} />
       </section>
       <section id="sobre">
-        <Sobre />
+        <Sobre isEnglish={isEnglish} />
       </section>
       <section id="projetos">
-        <Projetos />
+        <Projetos isEnglish={isEnglish} />
       </section>
-      <Footer />
+      <Footer isEnglish={isEnglish} />
     </div>
   )
 }
