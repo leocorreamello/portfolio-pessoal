@@ -61,13 +61,13 @@ const Sobre = ({ isEnglish }) => {
                                 {images.map((image) => (
                                     <div
                                         key={image.alt}
-                                        className="relative"
+                                        className="relative group"
                                         onMouseEnter={() => handleMouseEnter(image.alt)}
                                         onMouseLeave={handleMouseLeave}
                                     >
                                         <img src={image.src} alt={image.alt} className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20" />
                                         {hoveredImg === image.alt && (
-                                            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-75 text-white text-xs md:text-sm lg:text-lg">
+                                            <div className="absolute bottom-full mb-2 w-max bg-gradient-to-r from-blue-500 to-green-500 text-white text-xs md:text-sm lg:text-lg p-2 rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                                 {image.alt}
                                             </div>
                                         )}
