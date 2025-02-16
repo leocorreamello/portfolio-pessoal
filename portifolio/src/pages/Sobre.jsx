@@ -67,9 +67,8 @@ const Sobre = ({ isEnglish }) => {
                                     >
                                         <img src={image.src} alt={image.alt} className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20" />
                                         {hoveredImg === image.alt && (
-                                            <div className="absolute bottom-full mb-2 w-max bg-gradient-to-r from-blue-500 to-green-500 text-white text-xs md:text-sm lg:text-lg p-2 rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-r from-blue-500 to-green-500 text-white text-xs md:text-sm lg:text-lg p-2 rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                                 {image.alt}
-                                                <div className="absolute left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-8 border-l-transparent border-r-8 border-r-transparent border-t-8 border-t-blue-500"></div>
                                             </div>
                                         )}
                                     </div>
