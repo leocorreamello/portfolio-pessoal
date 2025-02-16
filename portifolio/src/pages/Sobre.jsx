@@ -47,8 +47,8 @@ const Sobre = ({ isEnglish }) => {
                 <div className="flex flex-col 2xl:flex-row items-center justify-center p-4 w-full max-w-6xl">
                     <img src={fotoeu} alt="minha foto" className='w-60 sm:w-60 md:w-60 lg:w-80 2xl:w-[500px] rounded-full outline outline-white 2xl:absolute 2xl:mr-[1150px]' />
                     <div className="bg-[#3b3d3f] rounded-[40px] border-4 border-gradient p-6 w-full mt-8 2xl:mt-0">
-                        <div className='2xl:ml-[400px] 2xl:mr-[100px] mt-[50px]'>
-                            <h1 className="text-3xl md:text-4xl lg:text-6xl text-center">Leonardo Mello</h1>
+                        <div className='2xl:ml-[400px] 2xl:mr-[100px] mt-[50px] text-center'>
+                            <h1 className="text-3xl md:text-4xl lg:text-6xl">Leonardo Mello</h1>
                             <p className="text-lg md:text-xl lg:text-3xl text-justify mt-4">
                             {isEnglish ? 
                                 "Hello, I'm Leonardo Mello, I'm 19 years old and I'm studying Software Engineering at FIAP. Currently, I work as an intern at Ticket, integrating the Digital Channels team as a Developer. I'm passionate about technology and I'm always looking for new challenges." 
@@ -56,25 +56,25 @@ const Sobre = ({ isEnglish }) => {
                                 "Olá, sou Leonardo Mello, tenho 19 anos e estou cursando Engenharia de Software na FIAP. Atualmente, atuo como estagiário na Ticket, integrando o time de Canais Digitais como Desenvolvedor. Sou apaixonado por tecnologia e estou sempre em busca de novos desafios."
                             }
                             </p>
-                            <h2 className="text-xl md:text-2xl lg:text-4xl mt-4 text-center">{isEnglish ? "Technologies" : "Tecnologias"}</h2>
+                            <h2 className="text-xl md:text-2xl lg:text-4xl mt-4">{isEnglish ? "Technologies" : "Tecnologias"}</h2>
                             <div className='flex flex-wrap justify-center mt-4 gap-4'>
                                 {images.map((image) => (
                                     <div
                                         key={image.alt}
-                                        className="relative"
+                                        className="relative group"
                                         onMouseEnter={() => handleMouseEnter(image.alt)}
                                         onMouseLeave={handleMouseLeave}
                                     >
                                         <img src={image.src} alt={image.alt} className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20" />
                                         {hoveredImg === image.alt && (
-                                            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-75 text-white text-xs md:text-sm lg:text-lg">
+                                            <div className="absolute inset-0 flex items-center justify-center bg-gray-700 text-white text-xs md:text-sm lg:text-lg p-2 rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                                 {image.alt}
                                             </div>
                                         )}
                                     </div>
                                 ))}
                             </div>
-                            <h2 className="text-xl md:text-2xl lg:text-4xl mt-4 text-center">{isEnglish ? "Contact" : "Contato"}</h2>
+                            <h2 className="text-xl md:text-2xl lg:text-4xl mt-4">{isEnglish ? "Contact" : "Contato"}</h2>
                             <div className='flex flex-wrap justify-center mt-4 gap-4'>
                                 <a href="https://github.com/leocorreamello" target='_blank' rel="noopener noreferrer">
                                     <img src={github} alt="GitHub" className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 hover:animate-button-hover" />

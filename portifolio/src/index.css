@@ -8,6 +8,12 @@
   }
 }
 
+@layer components {
+  .popup {
+    @apply absolute inset-0 flex items-center justify-center bg-gray-700 text-white text-xs md:text-sm lg:text-lg p-2 rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300;
+  }
+}
+
 :root {
   --bg-color-dark: #1c1e21;
   --text-color-dark: #ffffff;
