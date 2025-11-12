@@ -51,9 +51,9 @@ const Sobre = ({ isEnglish }) => {
                             <h1 className="text-3xl md:text-4xl lg:text-6xl">Leonardo Mello</h1>
                             <p className="text-lg md:text-xl lg:text-3xl text-justify mt-4">
                             {isEnglish ? 
-                                "Hello, I'm Leonardo Mello, I'm 19 years old and I'm studying Software Engineering at FIAP. Currently, I work as an intern at Ticket, integrating the Digital Channels team as a Developer. I'm passionate about technology and I'm always looking for new challenges." 
+                                "Hello, I'm Leonardo Mello, I'm 20 years old and I'm studying Software Engineering at FIAP. Currently, I work as an intern at Ticket, integrating the Digital Channels team as a Developer. I'm passionate about technology and I'm always looking for new challenges." 
                                 : 
-                                "Olá, sou Leonardo Mello, tenho 19 anos e estou cursando Engenharia de Software na FIAP. Atualmente, atuo como estagiário na Ticket, integrando o time de Canais Digitais como Desenvolvedor. Sou apaixonado por tecnologia e estou sempre em busca de novos desafios."
+                                "Olá, sou Leonardo Mello, tenho 20 anos e estou cursando Engenharia de Software na FIAP. Atualmente, atuo como estagiário na Ticket, integrando o time de Canais Digitais como Desenvolvedor. Sou apaixonado por tecnologia e estou sempre em busca de novos desafios."
                             }
                             </p>
                             <h2 className="text-xl md:text-2xl lg:text-4xl mt-4">{isEnglish ? "Technologies" : "Tecnologias"}</h2>
