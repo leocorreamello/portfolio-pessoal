@@ -8,17 +8,25 @@ export default {
     extend: {
       screens: {
         ssm: '320px',
+        xs: '375px',
         sm: '640px',
         md: '768px',
         lg: '1024px',
         xl: '1280px',
+        '2xl': '1536px',
+        '3xl': '1920px',
       },
-      fontSize: {
-        'h1-ssm': '1.5rem', // 320px
-        'h1-sm': '2rem',    // 640px
-        'h1-md': '2.5rem',  // 768px
-        'h1-lg': '3rem',    // 1024px
-        'h1-xl': '3.5rem',  // 1280px
+      maxWidth: {
+        '8xl': '90rem',
+        '10xl': '110rem',
+      },
+      colors: {
+        background: 'var(--bg-color-dark)',
+        surface: 'var(--primary-color-dark)',
+        surfaceMuted: 'var(--secondary-color-dark)',
+        textMain: 'var(--text-color-dark)',
+        accentStart: 'var(--accent-start)',
+        accentEnd: 'var(--accent-end)',
       },
       animation: {
         'button-hover': 'buttonHover 0.3s ease-in-out',

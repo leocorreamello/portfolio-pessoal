@@ -19,9 +19,27 @@
   --text-color-dark: #ffffff;
   --primary-color-dark: #3b3d3f;
   --secondary-color-dark: #2c2f33;
+  --accent-start: #00ffd1;
+  --accent-end: #0500ff;
 }
 
 body {
   background-color: var(--bg-color-dark);
   color: var(--text-color-dark);
+  min-height: 100vh;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+a,
+button {
+  transition: all 0.2s ease;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent-start);
+  outline-offset: 3px;
+  border-radius: 0.5rem;
 }

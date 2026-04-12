@@ -1,23 +1,9 @@
-import React, { useState } from 'react';
-import fotoeu from '../../public/eu8.png';
-import html from '../../public/html-5.png';
-import css from '../../public/css-3.png';
-import js from '../../public/js.png';
-import react from '../../public/react.png';
-import bootstrap from '../../public/bootstrap.png';
-import java from '../../public/java.png';
-import git from '../../public/git.png';
-import github from '../../public/github.png';
-import linkedin from '../../public/linkedin.png';
-import curriculo from '../../public/curriculo.png';
-import cv from '../../public/curriculo2024.pdf';
-import sass from '../../public/sass.png';
-import arduino from '../../public/arduino.png';
-import c from '../../public/c.png';
-import tailwind from '../../public/tailwind-css.svg';
+import { useState } from 'react';
+import PropTypes from 'prop-types';
 
-const Sobre = ({ isEnglish }) => {
+const Sobre = ({ isEnglish, content }) => {
     const [hoveredImg, setHoveredImg] = useState(null);
+    const { contactIcons, profile, resume, socialLinks, technologies } = content;
 
     const handleMouseEnter = (alt) => {
         setHoveredImg(alt);
@@ -27,71 +13,79 @@ const Sobre = ({ isEnglish }) => {
         setHoveredImg(null);
     };
 
-    const images = [
-        { src: html, alt: 'HTML' },
-        { src: css, alt: 'CSS' },
-        { src: js, alt: 'JavaScript' },
-        { src: react, alt: 'React' },
-        { src: bootstrap, alt: 'Bootstrap' },
-        { src: java, alt: 'Java' },
-        { src: git, alt: 'Git' },
-        { src: sass, alt: 'Sass' },
-        { src: arduino, alt: 'Arduino' },
-        { src: c, alt: 'C++' },
-        { src: tailwind, alt: 'Tailwind' },
-    ];
-
     return (
-        <>
-            <main className='mb-72 flex items-center justify-center min-h-screen'>
-                <div className="flex flex-col 2xl:flex-row items-center justify-center p-4 w-full max-w-6xl">
-                    <img src={fotoeu} alt="minha foto" className='w-60 sm:w-60 md:w-60 lg:w-80 2xl:w-[500px] rounded-full outline outline-white 2xl:absolute 2xl:mr-[1150px]' />
-                    <div className="bg-[#3b3d3f] rounded-[40px] border-4 border-gradient p-6 w-full mt-8 2xl:mt-0">
-                        <div className='2xl:ml-[400px] 2xl:mr-[100px] mt-[50px] text-center'>
-                            <h1 className="text-3xl md:text-4xl lg:text-6xl">Leonardo Mello</h1>
-                            <p className="text-lg md:text-xl lg:text-3xl text-justify mt-4">
-                            {isEnglish ? 
-                                "Hello, I'm Leonardo Mello, I'm 20 years old and I'm studying Software Engineering at FIAP. Currently, I work as an intern at Ticket, integrating the Digital Channels team as a Developer. I'm passionate about technology and I'm always looking for new challenges." 
-                                : 
-                                "Olá, sou Leonardo Mello, tenho 20 anos e estou cursando Engenharia de Software na FIAP. Atualmente, atuo como estagiário na Ticket, integrando o time de Canais Digitais como Desenvolvedor. Sou apaixonado por tecnologia e estou sempre em busca de novos desafios."
-                            }
-                            </p>
-                            <h2 className="text-xl md:text-2xl lg:text-4xl mt-4">{isEnglish ? "Technologies" : "Tecnologias"}</h2>
-                            <div className='flex flex-wrap justify-center mt-4 gap-4'>
-                                {images.map((image) => (
-                                    <div
-                                        key={image.alt}
-                                        className="relative group"
-                                        onMouseEnter={() => handleMouseEnter(image.alt)}
-                                        onMouseLeave={handleMouseLeave}
-                                    >
-                                        <img src={image.src} alt={image.alt} className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20" />
-                                        {hoveredImg === image.alt && (
-                                            <div className="absolute inset-0 flex items-center justify-center bg-gray-700 text-white text-xs md:text-sm lg:text-lg p-2 rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                                {image.alt}
-                                            </div>
-                                        )}
-                                    </div>
-                                ))}
-                            </div>
-                            <h2 className="text-xl md:text-2xl lg:text-4xl mt-4">{isEnglish ? "Contact" : "Contato"}</h2>
-                            <div className='flex flex-wrap justify-center mt-4 gap-4'>
-                                <a href="https://github.com/leocorreamello" target='_blank' rel="noopener noreferrer">
-                                    <img src={github} alt="GitHub" className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 hover:animate-button-hover" />
-                                </a>
-                                <a href="https://www.linkedin.com/in/leocorreamello/" target='_blank' rel="noopener noreferrer">
-                                    <img src={linkedin} alt="LinkedIn" className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 hover:animate-button-hover" />
-                                </a>
-                                <a href={cv} target='_blank' rel="noopener noreferrer">
-                                    <img src={curriculo} alt="Currículo" className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 hover:animate-button-hover" />
-                                </a>
-                            </div>
+        <section aria-labelledby='about-title' className='min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-10 lg:px-16 3xl:px-24 py-12 lg:py-20'>
+            <div className="w-full max-w-10xl mx-auto flex flex-col xl:flex-row items-center xl:items-start justify-center gap-8 2xl:gap-12">
+                <img
+                    src={profile.photo.src}
+                    alt={profile.photo.alt}
+                    className='w-44 xs:w-52 sm:w-60 md:w-72 lg:w-80 2xl:w-96 3xl:w-[30rem] rounded-full outline outline-2 outline-white shrink-0'
+                    loading='lazy'
+                    decoding='async'
+                />
+
+                <div className="bg-surface rounded-3xl border-4 border-gradient p-5 sm:p-6 md:p-8 lg:p-10 w-full max-w-5xl">
+                    <div className='text-center xl:text-left'>
+                        <h1 id='about-title' className="text-[clamp(1.8rem,4.8vw,4.2rem)] leading-tight">{profile.name}</h1>
+                        <p className="text-sm xs:text-base sm:text-lg lg:text-xl 2xl:text-2xl text-justify mt-4 leading-relaxed">
+                            {isEnglish ? profile.about.en : profile.about.pt}
+                        </p>
+
+                        <h2 className="text-[clamp(1.3rem,3.5vw,2.3rem)] mt-8">
+                            {isEnglish ? "Technologies" : "Tecnologias"}
+                        </h2>
+                        <div className='flex flex-wrap justify-center xl:justify-start mt-4 gap-3 sm:gap-4'>
+                            {technologies.map((image) => (
+                                <button
+                                    key={image.id}
+                                    type="button"
+                                    className="relative group rounded-lg"
+                                    onMouseEnter={() => handleMouseEnter(image.name)}
+                                    onMouseLeave={handleMouseLeave}
+                                    onFocus={() => handleMouseEnter(image.name)}
+                                    onBlur={handleMouseLeave}
+                                    aria-label={image.name}
+                                >
+                                    <img src={image.icon} alt={image.name} className="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20" />
+                                    {hoveredImg === image.name && (
+                                        <div className="absolute inset-0 flex items-center justify-center bg-gray-700 text-white text-xs md:text-sm p-2 rounded-md shadow-lg opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300">
+                                            {image.name}
+                                        </div>
+                                    )}
+                                </button>
+                            ))}
+                        </div>
+
+                        <h2 className="text-[clamp(1.3rem,3.5vw,2.3rem)] mt-8">
+                            {isEnglish ? "Contact" : "Contato"}
+                        </h2>
+                        <div className='flex flex-wrap justify-center xl:justify-start mt-4 gap-3 sm:gap-4'>
+                            <a href={socialLinks.github} target='_blank' rel="noopener noreferrer" aria-label="GitHub profile" className="p-1 rounded-lg">
+                                <img src={contactIcons.github} alt="GitHub" className="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 hover:animate-button-hover" />
+                            </a>
+                            <a href={socialLinks.linkedin} target='_blank' rel="noopener noreferrer" aria-label="LinkedIn profile" className="p-1 rounded-lg">
+                                <img src={contactIcons.linkedin} alt="LinkedIn" className="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 hover:animate-button-hover" />
+                            </a>
+                            <a href={resume.file} target='_blank' rel="noopener noreferrer" aria-label={isEnglish ? 'Download resume' : 'Baixar curriculo'} className="p-1 rounded-lg">
+                                <img src={contactIcons.resume} alt="Curriculo" className="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 hover:animate-button-hover" />
+                            </a>
                         </div>
                     </div>
                 </div>
-            </main>
-        </>
+            </div>
+        </section>
     );
 };
 
 export default Sobre;
+
+Sobre.propTypes = {
+    isEnglish: PropTypes.bool.isRequired,
+    content: PropTypes.shape({
+        contactIcons: PropTypes.object.isRequired,
+        profile: PropTypes.object.isRequired,
+        resume: PropTypes.object.isRequired,
+        socialLinks: PropTypes.object.isRequired,
+        technologies: PropTypes.array.isRequired,
+    }).isRequired,
+};
