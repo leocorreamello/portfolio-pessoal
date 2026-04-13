@@ -573,7 +573,7 @@ export default function Admin() {
                 <h2 className='text-2xl font-semibold'>Profile & Links</h2>
                 <button
                   type='button'
-                  onClick={handleContentSave}
+                  onClick={() => handleContentSave()}
                   disabled={isSaving || !isEditable}
                   className='px-4 py-2 rounded-lg bg-gradient-to-r from-accentStart to-accentEnd text-black font-semibold disabled:opacity-50'
                 >
@@ -650,7 +650,7 @@ export default function Admin() {
                 <h2 className='text-2xl font-semibold'>Technologies</h2>
                 <button
                   type='button'
-                  onClick={handleContentSave}
+                  onClick={() => handleContentSave()}
                   disabled={isSaving || !isEditable}
                   className='px-4 py-2 rounded-lg bg-gradient-to-r from-accentStart to-accentEnd text-black font-semibold disabled:opacity-50'
                 >
