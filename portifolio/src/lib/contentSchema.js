@@ -118,6 +118,99 @@ const ensureProjects = (projects, fallback, errors) => {
   return sanitized.length > 0 ? sanitized : fallback;
 };
 
+const ensureTimeline = (timeline, fallback, errors) => {
+  if (!Array.isArray(timeline)) {
+    errors.push('timeline must be an array');
+    return fallback;
+  }
+
+  const sanitized = timeline
+    .filter((item) => {
+      const hasBaseData =
+        isNonEmptyString(item?.id) &&
+        isNonEmptyString(item?.type) &&
+        isNonEmptyString(item?.title) &&
+        isNonEmptyString(item?.organization) &&
+        isNonEmptyString(item?.period) &&
+        isObject(item?.description);
+
+      return hasBaseData;
+    })
+    .map((item) => ({
+      ...item,
+      description: ensureLocalizedText(item.description, { en: '', pt: '' }, 'timeline.description', errors),
+      location: isNonEmptyString(item?.location) ? item.location : '',
+    }));
+
+  if (sanitized.length !== timeline.length) {
+    errors.push('timeline has invalid items');
+  }
+
+  return sanitized.length > 0 ? sanitized : fallback;
+};
+
+const ensureCertificates = (certificates, fallback, errors) => {
+  if (!Array.isArray(certificates)) {
+    errors.push('certificates must be an array');
+    return fallback;
+  }
+
+  const sanitized = certificates
+    .filter((item) => {
+      const hasBaseData =
+        isNonEmptyString(item?.id) &&
+        isNonEmptyString(item?.title) &&
+        isNonEmptyString(item?.issuer) &&
+        isNonEmptyString(item?.date) &&
+        isNonEmptyString(item?.image);
+
+      return hasBaseData;
+    })
+    .map((item) => ({
+      ...item,
+      credentialUrl: isNonEmptyString(item?.credentialUrl) ? item.credentialUrl : '',
+      description: isObject(item?.description)
+        ? ensureLocalizedText(item.description, { en: '', pt: '' }, 'certificates.description', errors)
+        : { en: '', pt: '' },
+    }));
+
+  if (sanitized.length !== certificates.length) {
+    errors.push('certificates has invalid items');
+  }
+
+  return sanitized.length > 0 ? sanitized : fallback;
+};
+
+const ensureSocialImpact = (socialImpact, fallback, errors) => {
+  if (!Array.isArray(socialImpact)) {
+    errors.push('socialImpact must be an array');
+    return fallback;
+  }
+
+  const sanitized = socialImpact
+    .filter((item) => {
+      const hasBaseData =
+        isNonEmptyString(item?.id) &&
+        isNonEmptyString(item?.title) &&
+        isNonEmptyString(item?.period) &&
+        isNonEmptyString(item?.image) &&
+        isObject(item?.description);
+
+      return hasBaseData;
+    })
+    .map((item) => ({
+      ...item,
+      description: ensureLocalizedText(item.description, { en: '', pt: '' }, 'socialImpact.description', errors),
+      impact: isNonEmptyString(item?.impact) ? item.impact : '',
+    }));
+
+  if (sanitized.length !== socialImpact.length) {
+    errors.push('socialImpact has invalid items');
+  }
+
+  return sanitized.length > 0 ? sanitized : fallback;
+};
+
 export const validatePortfolioContent = (content, fallbackContent) => {
   const errors = [];
   const safeContent = isObject(content) ? content : {};
@@ -133,6 +226,9 @@ export const validatePortfolioContent = (content, fallbackContent) => {
     contactIcons: ensureContactIcons(safeContent.contactIcons, fallbackContent.contactIcons, errors),
     technologies: ensureTechnologies(safeContent.technologies, fallbackContent.technologies, errors),
     projects: ensureProjects(safeContent.projects, fallbackContent.projects, errors),
+    timeline: ensureTimeline(safeContent.timeline, fallbackContent.timeline, errors),
+    certificates: ensureCertificates(safeContent.certificates, fallbackContent.certificates, errors),
+    socialImpact: ensureSocialImpact(safeContent.socialImpact, fallbackContent.socialImpact, errors),
   };
 
   return {

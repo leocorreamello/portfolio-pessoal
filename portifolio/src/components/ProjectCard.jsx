@@ -1,19 +1,19 @@
-import { TbWorldWww } from 'react-icons/tb';
-import { FaCode } from 'react-icons/fa';
+import { Code2, Globe } from 'lucide-react';
 import PropTypes from 'prop-types';
+import { getTechnologyIcon } from '../lib/technologyIcons';
 
 export default function ProjectCard({ project, techById, isEnglish }) {
-  const codeLabel = isEnglish ? 'Code' : 'Codigo';
+  const codeLabel = isEnglish ? 'Code' : 'Código';
   const liveLabel = isEnglish ? 'Live' : 'Site';
   const isExternalLive = project.liveUrl.startsWith('http');
 
   return (
-    <article className='flex flex-col items-center bg-background p-4 sm:p-5 lg:p-6 2xl:p-7 rounded-xl shadow-lg h-full'>
-      <h2 className='text-center text-[clamp(1.4rem,3vw,2rem)] leading-tight'>{project.title}</h2>
+    <article className='reveal-up interactive-lift flex flex-col items-center glass-panel p-4 sm:p-5 lg:p-6 2xl:p-7 rounded-2xl shadow-card h-full'>
+      <h2 className='text-center text-[clamp(1.3rem,3vw,1.9rem)] leading-tight text-textMain min-h-[3.2rem] flex items-center'>{project.title}</h2>
       <img
         src={project.image}
         alt={project.title}
-        className='w-full max-w-[24rem] aspect-[4/3] object-cover rounded-3xl border-gradient'
+        className='w-full max-w-full aspect-[4/3] object-cover rounded-2xl border-gradient mt-3'
         loading='lazy'
         decoding='async'
       />
@@ -23,28 +23,39 @@ export default function ProjectCard({ project, techById, isEnglish }) {
           const tech = techById[techId];
           if (!tech) return null;
 
+          const mappedTech = getTechnologyIcon(tech.id);
+
           return (
-            <img
-              key={`${project.id}-${tech.id}`}
-              src={tech.icon}
-              alt={tech.name}
-              className='w-7 h-7 sm:w-8 sm:h-8 lg:w-10 lg:h-10'
-              loading='lazy'
-              decoding='async'
-            />
+            <span key={`${project.id}-${tech.id}`} className='inline-flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-lg border border-borderSoft bg-surfaceSoft'>
+              {mappedTech ? (
+                <mappedTech.Icon
+                  aria-hidden='true'
+                  className='w-4 h-4 sm:w-5 sm:h-5'
+                  style={{ color: mappedTech.color }}
+                />
+              ) : (
+                <img
+                  src={tech.icon}
+                  alt={tech.name}
+                  className='w-4 h-4 sm:w-5 sm:h-5'
+                  loading='lazy'
+                  decoding='async'
+                />
+              )}
+            </span>
           );
         })}
       </div>
 
-      <div className='flex flex-wrap justify-center gap-3 mt-4 w-full'>
+      <div className='flex flex-wrap justify-center gap-3 mt-5 w-full'>
         <a
           href={project.codeUrl}
           target='_blank'
           rel='noopener noreferrer'
           aria-label={`${project.title} repository`}
-          className='flex justify-center bg-slate-800 px-3 py-2 sm:px-4 sm:py-2 items-center gap-1 rounded-xl hover:bg-slate-600 hover:animate-button-hover min-w-[120px]'
+          className='interactive-lift flex w-full sm:w-auto justify-center border border-borderSoft bg-surfaceSoft px-3 py-2 sm:px-4 sm:py-2 items-center gap-2 rounded-xl hover:border-accentStart/45 hover:bg-surfaceMuted sm:min-w-[132px]'
         >
-          <FaCode className='size-5 lg:size-6' />
+          <Code2 className='size-4 sm:size-5' />
           <span className='text-sm sm:text-base lg:text-lg'>{codeLabel}</span>
         </a>
 
@@ -53,9 +64,9 @@ export default function ProjectCard({ project, techById, isEnglish }) {
           target={isExternalLive ? '_blank' : '_self'}
           rel={isExternalLive ? 'noopener noreferrer' : undefined}
           aria-label={`${project.title} live project`}
-          className='flex justify-center bg-slate-800 px-3 py-2 sm:px-4 sm:py-2 items-center gap-1 rounded-xl hover:bg-slate-600 hover:animate-button-hover min-w-[120px]'
+          className='interactive-lift flex w-full sm:w-auto justify-center border border-borderSoft bg-surfaceSoft px-3 py-2 sm:px-4 sm:py-2 items-center gap-2 rounded-xl hover:border-accentStart/45 hover:bg-surfaceMuted sm:min-w-[132px]'
         >
-          <TbWorldWww className='size-5 lg:size-6' />
+          <Globe className='size-4 sm:size-5' />
           <span className='text-sm sm:text-base lg:text-lg'>{liveLabel}</span>
         </a>
       </div>

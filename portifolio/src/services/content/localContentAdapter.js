@@ -8,6 +8,9 @@ export const localPortfolioContent = {
   contactIcons,
   technologies,
   projects,
+  timeline: [],
+  certificates: [],
+  socialImpact: [],
 };
 
 export const localContentAdapter = {

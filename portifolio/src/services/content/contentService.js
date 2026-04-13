@@ -137,3 +137,13 @@ export const uploadResumeFile = async (file) => {
 
   return adapter.uploadResumeFile(file);
 };
+
+export const uploadPortfolioAssetFile = async (file, folder) => {
+  const adapter = requireEditableAdapter();
+
+  if (typeof adapter.uploadPortfolioAssetFile !== 'function') {
+    throw new Error('Asset upload is not available for the current content source.');
+  }
+
+  return adapter.uploadPortfolioAssetFile(file, folder);
+};

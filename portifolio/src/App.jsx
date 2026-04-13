@@ -3,6 +3,9 @@ import Header from "./components/Header"
 import Footer from "./components/Footer"
 import Home from './pages/Home.jsx';
 import Sobre from './pages/Sobre.jsx';
+import Timeline from './pages/Timeline.jsx';
+import Certificates from './pages/Certificates.jsx';
+import SocialImpact from './pages/SocialImpact.jsx';
 import Projetos from './pages/Projetos.jsx';
 import { usePortfolioContent } from './hooks/usePortfolioContent';
 
@@ -34,6 +37,15 @@ function App() {
       </section>
       <section id="sobre">
         <Sobre isEnglish={isEnglish} content={content} />
+      </section>
+      <section id="timeline">
+        <Timeline isEnglish={isEnglish} content={content} />
+      </section>
+      <section id="certificates">
+        <Certificates isEnglish={isEnglish} content={content} />
+      </section>
+      <section id="social-impact">
+        <SocialImpact isEnglish={isEnglish} content={content} />
       </section>
       <section id="projetos">
         <Projetos isEnglish={isEnglish} content={content} />

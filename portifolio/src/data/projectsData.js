@@ -66,7 +66,7 @@ export const projects = [
   },
   {
     id: 'portfolio-pessoal',
-    title: 'Portfolio Pessoal',
+    title: 'Portfólio Pessoal',
     image: projeto5,
     techIds: ['html', 'css', 'js', 'tailwind', 'react'],
     codeUrl: 'https://github.com/leocorreamello/portfolio-pessoal',

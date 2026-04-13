@@ -4,6 +4,7 @@ import { supabase } from '../../lib/supabaseClient';
 const CONTENT_TABLE = import.meta.env.VITE_SUPABASE_CONTENT_TABLE || 'portfolio_content';
 const CONTENT_ROW_ID = Number(import.meta.env.VITE_SUPABASE_CONTENT_ROW_ID || 1);
 const RESUME_BUCKET = import.meta.env.VITE_SUPABASE_RESUME_BUCKET || 'resume-files';
+const ASSETS_BUCKET = import.meta.env.VITE_SUPABASE_ASSETS_BUCKET || 'portfolio-assets';
 
 const assertSupabase = () => {
   if (!supabase) {
@@ -98,6 +99,23 @@ export const supabaseContentAdapter = {
     }
 
     const { data } = supabase.storage.from(RESUME_BUCKET).getPublicUrl(filePath);
+    return data.publicUrl;
+  },
+
+  async uploadPortfolioAssetFile(file, folder = 'assets') {
+    assertSupabase();
+
+    const filePath = `${folder}/${Date.now()}-${file.name}`;
+    const { error } = await supabase.storage.from(ASSETS_BUCKET).upload(filePath, file, {
+      upsert: true,
+      contentType: file.type || 'application/octet-stream',
+    });
+
+    if (error) {
+      throw error;
+    }
+
+    const { data } = supabase.storage.from(ASSETS_BUCKET).getPublicUrl(filePath);
     return data.publicUrl;
   },
 };

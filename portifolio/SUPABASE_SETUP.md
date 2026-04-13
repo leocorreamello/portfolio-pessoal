@@ -39,9 +39,10 @@ with check (auth.jwt() ->> 'email' in ('your-email@example.com'));
 
 Replace email in policy with your owner email.
 
-## 4) Create storage bucket for resume
-- Bucket name: `resume-files` (or set `VITE_SUPABASE_RESUME_BUCKET`)
-- Make bucket public.
+## 4) Create storage buckets
+- Bucket for resume: `resume-files` (or set `VITE_SUPABASE_RESUME_BUCKET`)
+- Bucket for certificates and social assets: `portfolio-assets` (or set `VITE_SUPABASE_ASSETS_BUCKET`)
+- Make both buckets public.
 - Add storage policy so only your owner account can upload.
 
 ## 5) Auth settings
@@ -53,4 +54,4 @@ Replace email in policy with your owner email.
 - `npm run dev`
 - Open `/admin`
 - Login via magic link.
-- Edit projects and resume.
+- Edit projects, resume, timeline, certificates and social impact.

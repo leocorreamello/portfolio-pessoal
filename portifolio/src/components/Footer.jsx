@@ -6,8 +6,8 @@ export default function Footer({ content }) {
 
     return (
         <footer aria-label='Site footer'>
-            <div className="bg-neutral-900 text-white h-20 flex justify-center items-center">
-                <p>Copyright © {currentYear} by {profile.name}. All rights reserved.</p>
+            <div className="border-t border-borderSoft bg-backgroundDeep/85 backdrop-blur-sm text-textMuted h-20 flex justify-center items-center px-4 text-center">
+                <p className='text-sm sm:text-base tracking-wide'>Copyright © {currentYear} by {profile.name}. All rights reserved.</p>
             </div>
         </footer>
     )

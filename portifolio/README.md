@@ -13,6 +13,7 @@ Portfólio pessoal desenvolvido com React, Vite e Tailwind CSS.
 - Interface responsiva
 - Conteúdo centralizado em camada de dados
 - Área administrativa protegida por magic link
+- Seções editáveis para timeline, certificados e ações sociais
 - Backup local e cache de conteúdo
 - Fallback de erro global
 
