@@ -3,7 +3,6 @@ import { FileText } from 'lucide-react';
 import { FaLinkedin } from 'react-icons/fa6';
 import PropTypes from 'prop-types';
 import { SiGithub } from 'react-icons/si';
-import { getTechnologyIcon } from '../lib/technologyIcons';
 
 const Sobre = ({ isEnglish, content }) => {
     const [hoveredImg, setHoveredImg] = useState(null);
@@ -53,22 +52,7 @@ const Sobre = ({ isEnglish, content }) => {
                                     onBlur={handleMouseLeave}
                                     aria-label={image.name}
                                 >
-                                    {(() => {
-                                        const mappedTech = getTechnologyIcon(image.id);
-
-                                        if (mappedTech) {
-                                            const TechIcon = mappedTech.Icon;
-                                            return (
-                                                <TechIcon
-                                                    aria-hidden='true'
-                                                    className='w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-11 lg:h-11'
-                                                    style={{ color: mappedTech.color }}
-                                                />
-                                            );
-                                        }
-
-                                        return <img src={image.icon} alt={image.name} className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-11 lg:h-11" />;
-                                    })()}
+                                            <img src={image.icon} alt={image.name} className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-11 lg:h-11" loading='lazy' decoding='async' />
                                     {hoveredImg === image.name && (
                                         <div className="popup group-focus:opacity-100">
                                             {image.name}

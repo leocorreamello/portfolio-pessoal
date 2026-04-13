@@ -1,13 +1,27 @@
-import { contactIcons, profileData, resumeData, socialLinks } from '../../data/profileData';
-import { projects, technologies } from '../../data/projectsData';
-
 export const localPortfolioContent = {
-  profile: profileData,
-  socialLinks,
-  resume: resumeData,
-  contactIcons,
-  technologies,
-  projects,
+  profile: {
+    name: '',
+    greeting: { en: '', pt: '' },
+    role: { en: '', pt: '' },
+    about: { en: '', pt: '' },
+    photo: { src: '', alt: '' },
+  },
+  socialLinks: {
+    github: '',
+    linkedin: '',
+  },
+  resume: {
+    file: '',
+    label: { en: '', pt: '' },
+  },
+  contactIcons: {
+    github: '',
+    linkedin: '',
+    resume: '',
+  },
+  technologies: [],
+  projectTechnologies: [],
+  projects: [],
   timeline: [],
   certificates: [],
   socialImpact: [],

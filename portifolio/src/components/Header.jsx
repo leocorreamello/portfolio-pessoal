@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link, scrollSpy } from 'react-scroll';
 import { Menu, X } from 'lucide-react';
-import logo from "../../public/logo.png";
-import flagEua from "../../public/eua.png";
-import flagBr from "../../public/brazil.png";
+import logo from '../../public/logo.png';
+import flagEua from '../../public/eua.png';
+import flagBr from '../../public/brazil.png';
 
 export default function Header({ toggleLanguage, isEnglish }) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -39,7 +39,7 @@ export default function Header({ toggleLanguage, isEnglish }) {
                                 aria-label={isEnglish ? 'Switch to Portuguese' : 'Switch to English'}
                                 className="flex items-center gap-2 bg-surfaceSoft border border-borderSoft px-3 py-2 rounded-xl hover:bg-surfaceMuted hover:animate-button-hover"
                             >
-                                <img src={isEnglish ? flagBr : flagEua} alt="language flag" className="w-4 h-4" />
+                                <img src={isEnglish ? flagBr : flagEua} alt="language flag" className="w-4 h-4 rounded-sm object-cover" />
                                 <span className="text-sm xl:text-base">{isEnglish ? 'Português' : 'English'}</span>
                             </button>
                             <div className="h-6 border-l border-borderSoft"></div>
@@ -71,7 +71,7 @@ export default function Header({ toggleLanguage, isEnglish }) {
                             aria-label={isEnglish ? 'Switch to Portuguese' : 'Switch to English'}
                             className="flex items-center gap-2 bg-surfaceSoft border border-borderSoft px-3 py-2 rounded-xl hover:bg-surfaceMuted"
                         >
-                            <img src={isEnglish ? flagBr : flagEua} alt="language flag" className="w-4 h-4" />
+                            <img src={isEnglish ? flagBr : flagEua} alt="language flag" className="w-4 h-4 rounded-sm object-cover" />
                             <span className="text-sm">{isEnglish ? 'PT' : 'EN'}</span>
                         </button>
                         <button onClick={toggleMenu} aria-label="Open menu" className="p-1 rounded-lg border border-borderSoft bg-surfaceSoft hover:bg-surfaceMuted">
@@ -88,7 +88,7 @@ export default function Header({ toggleLanguage, isEnglish }) {
                             aria-label={isEnglish ? 'Switch to Portuguese' : 'Switch to English'}
                             className="flex items-center gap-2 bg-surfaceSoft border border-borderSoft px-3 py-2 rounded-xl hover:bg-surfaceMuted"
                         >
-                            <img src={isEnglish ? flagBr : flagEua} alt="language flag" className="w-4 h-4" />
+                            <img src={isEnglish ? flagBr : flagEua} alt="language flag" className="w-4 h-4 rounded-sm object-cover" />
                             <span className="text-sm">{isEnglish ? 'Português' : 'English'}</span>
                         </button>
                         <button onClick={toggleMenu} className="text-white ml-4 p-1 rounded-lg border border-borderSoft bg-surfaceSoft" aria-label="Close menu">

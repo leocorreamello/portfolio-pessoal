@@ -120,6 +120,11 @@ export default function Admin() {
     name: '',
     icon: '',
   });
+  const [newProjectTechnology, setNewProjectTechnology] = useState({
+    id: '',
+    name: '',
+    icon: '',
+  });
   const [newTimeline, setNewTimeline] = useState({
     id: '',
     type: 'Experience',
@@ -160,6 +165,11 @@ export default function Admin() {
     [draftContent.technologies, content.technologies]
   );
 
+  const hasProjectTechnologyChanges = useMemo(
+    () => JSON.stringify(draftContent.projectTechnologies || []) !== JSON.stringify(content.projectTechnologies || []),
+    [draftContent.projectTechnologies, content.projectTechnologies]
+  );
+
   const hasProjectChanges = useMemo(
     () => JSON.stringify(projects) !== JSON.stringify(content.projects),
     [projects, content.projects]
@@ -185,7 +195,7 @@ export default function Admin() {
     [draftContent.socialImpact, content.socialImpact]
   );
 
-  const pendingChanges = hasProfileChanges || hasTechnologyChanges || hasProjectChanges || hasResumeChanges || hasTimelineChanges || hasCertificateChanges || hasSocialImpactChanges;
+  const pendingChanges = hasProfileChanges || hasTechnologyChanges || hasProjectTechnologyChanges || hasProjectChanges || hasResumeChanges || hasTimelineChanges || hasCertificateChanges || hasSocialImpactChanges;
 
   const isEditable = useMemo(() => getContentSource() === 'supabase', []);
 
@@ -216,6 +226,15 @@ export default function Admin() {
     setDraftContent((previous) => ({
       ...previous,
       technologies: previous.technologies.map((technology) =>
+        technology.id === id ? { ...technology, [field]: value } : technology
+      ),
+    }));
+  };
+
+  const updateProjectTechnologyField = (id, field, value) => {
+    setDraftContent((previous) => ({
+      ...previous,
+      projectTechnologies: (previous.projectTechnologies || []).map((technology) =>
         technology.id === id ? { ...technology, [field]: value } : technology
       ),
     }));
@@ -257,6 +276,7 @@ export default function Admin() {
 
       const updatedContent = await saveProject(sanitizedProject);
       setProjects(updatedContent.projects);
+      setDraftContent(updatedContent);
       setStatusMessage('Project saved successfully.');
     } catch (error) {
       setErrorMessage(error.message || 'Failed to save project.');
@@ -276,6 +296,7 @@ export default function Admin() {
     try {
       const updatedContent = await removeProject(projectId);
       setProjects(updatedContent.projects);
+      setDraftContent(updatedContent);
       setStatusMessage('Project removed successfully.');
     } catch (error) {
       setErrorMessage(error.message || 'Failed to remove project.');
@@ -383,6 +404,40 @@ export default function Admin() {
     }));
 
     setStatusMessage('Technology removed from draft. Save content to persist changes.');
+  };
+
+  const handleProjectTechnologyCreate = () => {
+    if (!newProjectTechnology.id || !newProjectTechnology.name || !newProjectTechnology.icon) {
+      setErrorMessage('Fill project technology id, name and icon URL before adding.');
+      return;
+    }
+
+    setDraftContent((previous) => ({
+      ...previous,
+      projectTechnologies: [
+        ...(previous.projectTechnologies || []),
+        {
+          id: newProjectTechnology.id,
+          name: newProjectTechnology.name,
+          icon: newProjectTechnology.icon,
+        },
+      ],
+    }));
+
+    setNewProjectTechnology({ id: '', name: '', icon: '' });
+    setStatusMessage('Project technology added to draft. Save content to persist changes.');
+  };
+
+  const handleProjectTechnologyDelete = (technologyId) => {
+    const shouldDelete = window.confirm('Remove this project technology? This action cannot be undone.');
+    if (!shouldDelete) return;
+
+    setDraftContent((previous) => ({
+      ...previous,
+      projectTechnologies: (previous.projectTechnologies || []).filter((technology) => technology.id !== technologyId),
+    }));
+
+    setStatusMessage('Project technology removed from draft. Save content to persist changes.');
   };
 
   const handleDraftArrayCreate = async (section, item, successMessage) => {
@@ -513,7 +568,8 @@ export default function Admin() {
           <nav className='flex flex-wrap gap-3'>
             {[
               { id: 'profile', label: 'Profile' },
-              { id: 'technologies', label: 'Technologies' },
+              { id: 'technologies', label: 'Bio technologies' },
+              { id: 'project-technologies', label: 'Project technologies' },
               { id: 'timeline', label: 'Timeline' },
               { id: 'certificates', label: 'Certificates' },
               { id: 'social-impact', label: 'Social impact' },
@@ -647,7 +703,7 @@ export default function Admin() {
           {activeSection === 'technologies' ? (
             <section className='p-5 rounded-xl bg-surface border border-surfaceMuted space-y-4'>
               <div className='flex flex-wrap items-center justify-between gap-3'>
-                <h2 className='text-2xl font-semibold'>Technologies</h2>
+                <h2 className='text-2xl font-semibold'>Bio technologies</h2>
                 <button
                   type='button'
                   onClick={() => handleContentSave()}
@@ -690,6 +746,62 @@ export default function Admin() {
                     </div>
                     <div className='flex gap-3'>
                       <button type='button' onClick={() => handleTechnologyDelete(technology.id)} className='px-3 py-2 rounded-lg bg-red-700 hover:bg-red-600'>
+                        Remove
+                      </button>
+                      <img src={technology.icon} alt={technology.name} className='w-10 h-10 object-contain' />
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </section>
+          ) : null}
+
+          {activeSection === 'project-technologies' ? (
+            <section className='p-5 rounded-xl bg-surface border border-surfaceMuted space-y-4'>
+              <div className='flex flex-wrap items-center justify-between gap-3'>
+                <h2 className='text-2xl font-semibold'>Project technologies</h2>
+                <button
+                  type='button'
+                  onClick={() => handleContentSave()}
+                  disabled={isSaving || !isEditable}
+                  className='px-4 py-2 rounded-lg bg-gradient-to-r from-accentStart to-accentEnd text-black font-semibold disabled:opacity-50'
+                >
+                  Save Project Technologies
+                </button>
+              </div>
+
+              <div className='grid grid-cols-1 lg:grid-cols-3 gap-3'>
+                <input value={newProjectTechnology.id} onChange={(event) => setNewProjectTechnology((prev) => ({ ...prev, id: event.target.value }))} placeholder='Tech ID' className='px-3 py-2 rounded-lg bg-[#111418] border border-surfaceMuted' />
+                <input value={newProjectTechnology.name} onChange={(event) => setNewProjectTechnology((prev) => ({ ...prev, name: event.target.value }))} placeholder='Tech name' className='px-3 py-2 rounded-lg bg-[#111418] border border-surfaceMuted' />
+                <input value={newProjectTechnology.icon} onChange={(event) => setNewProjectTechnology((prev) => ({ ...prev, icon: event.target.value }))} placeholder='Icon URL' className='px-3 py-2 rounded-lg bg-[#111418] border border-surfaceMuted' />
+                <input
+                  type='file'
+                  accept='image/*'
+                  onChange={(event) => handleAssetUpload(event, 'project-technologies', (publicUrl) => setNewProjectTechnology((previous) => ({ ...previous, icon: publicUrl })))}
+                  className='px-3 py-2 rounded-lg bg-[#111418] border border-surfaceMuted lg:col-span-3'
+                />
+              </div>
+
+              <button type='button' onClick={handleProjectTechnologyCreate} className='px-4 py-2 rounded-lg bg-green-600 hover:bg-green-500'>
+                Add Project Technology
+              </button>
+
+              <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
+                {(draftContent.projectTechnologies || []).map((technology) => (
+                  <article key={technology.id} className='p-4 rounded-lg border border-surfaceMuted bg-[#111418] space-y-3'>
+                    <div className='grid grid-cols-1 md:grid-cols-3 gap-3'>
+                      <input value={technology.id} onChange={(event) => updateProjectTechnologyField(technology.id, 'id', event.target.value)} className='px-3 py-2 rounded-lg bg-background border border-surfaceMuted' />
+                      <input value={technology.name} onChange={(event) => updateProjectTechnologyField(technology.id, 'name', event.target.value)} className='px-3 py-2 rounded-lg bg-background border border-surfaceMuted' />
+                      <input value={technology.icon} onChange={(event) => updateProjectTechnologyField(technology.id, 'icon', event.target.value)} className='px-3 py-2 rounded-lg bg-background border border-surfaceMuted' />
+                      <input
+                        type='file'
+                        accept='image/*'
+                        onChange={(event) => handleAssetUpload(event, 'project-technologies', (publicUrl) => updateProjectTechnologyField(technology.id, 'icon', publicUrl))}
+                        className='px-3 py-2 rounded-lg bg-background border border-surfaceMuted md:col-span-3'
+                      />
+                    </div>
+                    <div className='flex gap-3'>
+                      <button type='button' onClick={() => handleProjectTechnologyDelete(technology.id)} className='px-3 py-2 rounded-lg bg-red-700 hover:bg-red-600'>
                         Remove
                       </button>
                       <img src={technology.icon} alt={technology.name} className='w-10 h-10 object-contain' />

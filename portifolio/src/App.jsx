@@ -10,7 +10,7 @@ import Projetos from './pages/Projetos.jsx';
 import { usePortfolioContent } from './hooks/usePortfolioContent';
 
 function App() {
-  const { content } = usePortfolioContent();
+  const { content, isLoading } = usePortfolioContent();
 
   const [isEnglish, setIsEnglish] = useState(() => {
     const savedLanguage = localStorage.getItem('isEnglish');
@@ -28,6 +28,14 @@ function App() {
       return newState;
     });
   };
+
+  if (isLoading) {
+    return (
+      <div className='bg-background text-textMain min-h-screen flex items-center justify-center'>
+        <p className='text-textMuted tracking-wide'>Loading portfolio...</p>
+      </div>
+    );
+  }
 
   return (
     <div className='bg-background text-textMain scroll-smooth'>

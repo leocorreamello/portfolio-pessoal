@@ -7,7 +7,7 @@ const adapters = {
   supabase: supabaseContentAdapter,
 };
 
-const CACHE_PREFIX = 'portfolio-content-cache';
+const CACHE_PREFIX = 'portfolio-content-cache:v3';
 
 const getCacheKey = (source) => `${CACHE_PREFIX}:${source}`;
 

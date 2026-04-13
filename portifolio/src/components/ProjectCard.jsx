@@ -1,6 +1,5 @@
 import { Code2, Globe } from 'lucide-react';
 import PropTypes from 'prop-types';
-import { getTechnologyIcon } from '../lib/technologyIcons';
 
 export default function ProjectCard({ project, techById, isEnglish }) {
   const codeLabel = isEnglish ? 'Code' : 'Código';
@@ -23,25 +22,15 @@ export default function ProjectCard({ project, techById, isEnglish }) {
           const tech = techById[techId];
           if (!tech) return null;
 
-          const mappedTech = getTechnologyIcon(tech.id);
-
           return (
             <span key={`${project.id}-${tech.id}`} className='inline-flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-lg border border-borderSoft bg-surfaceSoft'>
-              {mappedTech ? (
-                <mappedTech.Icon
-                  aria-hidden='true'
-                  className='w-4 h-4 sm:w-5 sm:h-5'
-                  style={{ color: mappedTech.color }}
-                />
-              ) : (
-                <img
-                  src={tech.icon}
-                  alt={tech.name}
-                  className='w-4 h-4 sm:w-5 sm:h-5'
-                  loading='lazy'
-                  decoding='async'
-                />
-              )}
+              <img
+                src={tech.icon}
+                alt={tech.name}
+                className='w-4 h-4 sm:w-5 sm:h-5'
+                loading='lazy'
+                decoding='async'
+              />
             </span>
           );
         })}

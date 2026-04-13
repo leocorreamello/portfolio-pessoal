@@ -2,9 +2,8 @@ import ProjectCard from './ProjectCard';
 import PropTypes from 'prop-types';
 
 export default function Card({ isEnglish, content }) {
-    const { projects, technologies } = content;
-
-    const techById = technologies.reduce((accumulator, tech) => {
+    const { projects, technologies, projectTechnologies } = content;
+    const techById = [...technologies, ...(projectTechnologies || [])].reduce((accumulator, tech) => {
         accumulator[tech.id] = tech;
         return accumulator;
     }, {});
@@ -40,5 +39,6 @@ Card.propTypes = {
     content: PropTypes.shape({
         projects: PropTypes.array.isRequired,
         technologies: PropTypes.array.isRequired,
+        projectTechnologies: PropTypes.array.isRequired,
     }).isRequired,
 };

@@ -43,7 +43,6 @@ export const supabaseContentAdapter = {
     }
 
     if (!data?.data) {
-      await upsertContentRow(localPortfolioContent);
       return localPortfolioContent;
     }
 

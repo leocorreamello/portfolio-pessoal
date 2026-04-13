@@ -88,6 +88,21 @@ const ensureTechnologies = (technologies, fallback, errors) => {
   return sanitized.length > 0 ? sanitized : fallback;
 };
 
+const ensureProjectTechnologies = (technologies, fallback, errors) => {
+  if (!Array.isArray(technologies)) {
+    errors.push('projectTechnologies must be an array');
+    return fallback;
+  }
+
+  const sanitized = technologies.filter((tech) => isNonEmptyString(tech?.id) && isNonEmptyString(tech?.name) && isNonEmptyString(tech?.icon));
+
+  if (sanitized.length !== technologies.length) {
+    errors.push('projectTechnologies has invalid items');
+  }
+
+  return sanitized.length > 0 ? sanitized : fallback;
+};
+
 const ensureProjects = (projects, fallback, errors) => {
   if (!Array.isArray(projects)) {
     errors.push('projects must be an array');
@@ -225,6 +240,7 @@ export const validatePortfolioContent = (content, fallbackContent) => {
     resume: ensureResume(safeContent.resume, fallbackContent.resume, errors),
     contactIcons: ensureContactIcons(safeContent.contactIcons, fallbackContent.contactIcons, errors),
     technologies: ensureTechnologies(safeContent.technologies, fallbackContent.technologies, errors),
+    projectTechnologies: ensureProjectTechnologies(safeContent.projectTechnologies, fallbackContent.projectTechnologies, errors),
     projects: ensureProjects(safeContent.projects, fallbackContent.projects, errors),
     timeline: ensureTimeline(safeContent.timeline, fallbackContent.timeline, errors),
     certificates: ensureCertificates(safeContent.certificates, fallbackContent.certificates, errors),
